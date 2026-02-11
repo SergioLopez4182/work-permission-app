@@ -3,13 +3,22 @@
 import GoBackButton from '@/components/base/buttons/go-back';
 import { Button, Group, TextInput, Title, Text, Anchor, Stack, PasswordInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { IconArrowLeft } from "@tabler/icons-react";
+import { IconArrowLeft, IconEyeCheck, IconEyeOff } from "@tabler/icons-react";
 
-export default function ForgotPassword() {
+export default function SignUp() {
+    const VisibilityToggleIcon = ({ reveal }: { reveal: boolean }) =>
+        reveal ? (
+            <IconEyeOff style={{ width: 'var(--psi-icon-size)', height: 'var(--psi-icon-size)' }} />
+        ) : (
+            <IconEyeCheck style={{ width: 'var(--psi-icon-size)', height: 'var(--psi-icon-size)' }} />
+        );
+
     const form = useForm({
         mode: 'controlled',
         initialValues: {
-            email: ''
+            full_name: '',
+            email: '',
+            password: '',
         },
         validate: {
             email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
@@ -28,13 +37,21 @@ export default function ForgotPassword() {
                     >
                         <Stack gap={0}>
                             <Title order={1} c="cyan.8">
-                                ¿Olvidaste tu contraseña?
+                                Crear cuenta
                             </Title>
 
                             <Text>
-                                Ingresa tu correo electronico registrado y te enviaremos un código para reestablecer tu contraseña.
+                                Crea una cuenta para comenzar a crear permisos de trabajo en tu centro comercial.
                             </Text>
                         </Stack>
+
+                        <TextInput
+                            label="Nombre completo"
+                            withAsterisk
+                            placeholder="John Doe"
+                            key={form.key('full_name')}
+                            {...form.getInputProps('full_name')}
+                        />
 
                         <TextInput
                             label="Correo electronico"
@@ -42,6 +59,16 @@ export default function ForgotPassword() {
                             placeholder="example@email.com"
                             key={form.key('email')}
                             {...form.getInputProps('email')}
+                        />
+
+
+                        <PasswordInput
+                            label="Contraseña"
+                            withAsterisk
+                            placeholder="Ingresa tu contraseña"
+                            visibilityToggleIcon={VisibilityToggleIcon}
+                            key={form.key('password')}
+                            {...form.getInputProps('password')}
                         />
 
                         <Group>
@@ -52,15 +79,6 @@ export default function ForgotPassword() {
                             >
                                 Restablecer contraseña
                             </Button>
-                        </Group>
-
-                        <Group gap="xs">
-                            <Text size="sm" c="dimmed">
-                                ¿No tienes cuenta?
-                            </Text>
-                            <Anchor href="/auth/sign-up" underline="hover" size="sm">
-                                Registrate
-                            </Anchor>
                         </Group>
                     </form>
                 </section>

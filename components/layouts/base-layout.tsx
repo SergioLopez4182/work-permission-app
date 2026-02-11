@@ -4,7 +4,7 @@ interface Props {
 
 export default function BaseLayout({ children }: Props) {
     return (
-        <main className="min-h-screen w-full bg-gray-200 dark:bg-neutral-900">
+        <main className="flex flex-col w-full min-h-screen bg-gray-300 dark:bg-neutral-900">
             {children}
         </main>
     );
