@@ -27,7 +27,7 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="px-4 h-16 flex items-center justify-between gap-4 bg-cyan-800 dark:bg-neutral-800">
+        <nav className="px-8 h-16 flex items-center justify-between gap-4 bg-cyan-800 dark:bg-neutral-800">
             <section className="flex h-full gap-4 items-center">
                 <Image
                     src="/nav-logo.svg"

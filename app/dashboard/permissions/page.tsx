@@ -1,24 +1,31 @@
+import DashboardLayout from "@/components/layouts/dashboard-layout";
+import PermissionCard from "@/components/permissions/permission-card";
+import { Card, SimpleGrid, Text } from "@mantine/core";
+
 export default function Permissions() {
+
+    const content = (
+        <div className="w-full">
+            <SimpleGrid
+                cols={5}
+                spacing="md"
+                verticalSpacing="md"
+            >
+                {Array.from({ length: 100 }).map((_, index) => (
+                    <PermissionCard key={index} />
+                ))}
+            </SimpleGrid>
+        </div>
+    );
+
     return (
-        <article className="flex flex-col w-full p-4 bg-blue-300">
+        <DashboardLayout
+            title="Permisos de trabajo"
+            subtitle="Última actualización: 2026-02-12 20:03"
+            actions={<div>actions</div>}
+            content={content}
+            footer={<div>footer</div>}
+        />
 
-            <header className="flex justify-between items-center bg-red-300">
-                <section className="flex flex-col">
-                    <div>Titulo</div>
-                    <div>Subtitulo</div>
-                </section>
-                <section>
-                    Acciones
-                </section>
-            </header>
-
-            <main className="bg-green-300 flex flex-1">
-                Contenido
-            </main>
-
-            <footer className="bg-yellow-300">
-                Footer
-            </footer>
-        </article>
     );
 }
