@@ -21,6 +21,7 @@ export default function CreatePermissionModal({ }: Props) {
             variant="filled" 
             onClick={open} 
             size="xl"
+            color='cyan.7'
         />
     </>);
 }

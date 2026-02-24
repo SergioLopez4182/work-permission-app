@@ -1,6 +1,7 @@
 @layer mantine, tailwind-theme, tailwind-utilities;
 
 @import '@mantine/core/styles.layer.css' layer(mantine);
+@import '@mantine/dates/styles.layer.css' layer(mantine);
 @import 'tailwindcss/utilities' layer(tailwind);
 @import 'tailwindcss/theme' layer(tailwind-theme);
 

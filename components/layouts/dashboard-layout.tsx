@@ -14,7 +14,7 @@ export default function DashboardLayout({
 
 
     return (
-        <article className="flex flex-col w-full p-8 gap-8">
+        <article className="flex flex-col w-full px-8 py-4 gap-4">
 
             <header className="flex justify-between items-center">
                 <section className="flex flex-col">

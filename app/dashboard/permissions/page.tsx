@@ -10,7 +10,7 @@ export default function Permissions() {
     const content = (
         <div className="w-full">
             <SimpleGrid
-                cols={5}
+                cols={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
                 spacing="md"
                 verticalSpacing="md"
             >
