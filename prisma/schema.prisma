@@ -19,7 +19,7 @@ model Client {
   users           User[]
   shoppingCenters ShoppingCenter[]
   createdAt       DateTime         @default(now()) @map("created_at")
-  updatedAt       DateTime         @updatedAt @map("updated_at")
+  updatedAt       DateTime         @default(now()) @updatedAt @map("updated_at")
 
   @@map("clients")
 }
@@ -36,7 +36,7 @@ model User {
   shoppingCenters UserShoppingCenter[]
   retailSpaces    UserRetailSpace[]
   createdAt       DateTime             @default(now()) @map("created_at")
-  updatedAt       DateTime             @updatedAt @map("updated_at")
+  updatedAt       DateTime             @default(now()) @updatedAt @map("updated_at")
 
   @@map("users")
 }
@@ -49,7 +49,7 @@ model ShoppingCenter {
   users        UserShoppingCenter[]
   retailSpaces RetailSpace[]
   createdAt    DateTime             @default(now()) @map("created_at")
-  updatedAt    DateTime             @updatedAt @map("updated_at")
+  updatedAt    DateTime             @default(now()) @updatedAt @map("updated_at")
 
   @@map("shopping_centers")
 }
@@ -77,7 +77,7 @@ model RetailSpace {
   users            UserRetailSpace[]
   permissions      Permission[]
   createdAt        DateTime          @default(now()) @map("created_at")
-  updatedAt        DateTime          @updatedAt @map("updated_at")
+  updatedAt        DateTime          @default(now()) @updatedAt @map("updated_at")
 
   @@map("retail_space")
 }
@@ -112,7 +112,7 @@ model Status {
   domainObject DomainObject
   permissions  Permission[]
   createdAt    DateTime     @default(now()) @map("created_at")
-  updatedAt    DateTime     @updatedAt @map("updated_at")
+  updatedAt    DateTime     @default(now()) @updatedAt @map("updated_at")
 
   @@unique([name, domainObject])
   @@map("statuses")
@@ -126,7 +126,7 @@ model Type {
   domainObject DomainObject
   permissions  Permission[]
   createdAt    DateTime     @default(now()) @map("created_at")
-  updatedAt    DateTime     @updatedAt @map("updated_at")
+  updatedAt    DateTime     @default(now()) @updatedAt @map("updated_at")
 
   @@unique([name, domainObject])
   @@map("types")
@@ -153,7 +153,7 @@ model Permission {
   workerVehiclePlate String?      @map("worker_vehicle_plate")
   workerFiles        WorkerFile[]
   createdAt          DateTime     @default(now()) @map("created_at")
-  updatedAt          DateTime     @updatedAt @map("updated_at")
+  updatedAt          DateTime     @default(now()) @updatedAt @map("updated_at")
 
   @@index([retailSpaceId])
   @@index([userId])
@@ -171,7 +171,7 @@ model WorkerFile {
   mimeType     String     @map("mime_type")
   data         Bytes
   createdAt    DateTime   @default(now()) @map("created_at")
-  updatedAt    DateTime   @updatedAt @map("updated_at")
+  updatedAt    DateTime   @default(now()) @updatedAt @map("updated_at")
 
   @@map("worker_files")
 }
